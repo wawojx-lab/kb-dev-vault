@@ -97,7 +97,7 @@ _kb/
 
 - **Git remote（主方案，已落地）**：`https://github.com/wawojx-lab/kb-dev-vault`（私有仓）
   - 远程设备 `git clone` + 定期 `git pull` / `git push`
-  - 15 commits 已推送，最新 commit `131789c`
+  - 16 commits 已推送，最新 commit `f5990cc`
 - **Tailscale（备选）**：VPN 局域网，中国大陆稳定性待验证
 - **Syncthing（不推荐）**：md 文件并发编辑冲突风险高
 

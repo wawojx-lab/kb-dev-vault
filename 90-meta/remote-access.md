@@ -36,8 +36,8 @@ tags: [meta, remote, git, tailscale, syncthing]
 - **远程**：`https://github.com/wawojx-lab/kb-dev-vault`（私有仓）
 - **本地**：`d:\xiangmu\_kb\`
 - **分支**：`main`
-- **最新 commit**：`131789c`（2026-06-20）
-- **总 commits**：15
+- **最新 commit**：`f5990cc`（2026-06-20）
+- **总 commits**：16
 
 ### 远程设备接入步骤
 
