@@ -8,8 +8,8 @@ __pycache__/
 venv/
 env/
 
-# Flywheel 引擎（独立仓库，不入库）
-_kb_flywheel/
+# Flywheel 引擎（独立仓库，_kb_flywheel/ 在 d:\xiangmu\ 根目录，不在 _kb/ 内）
+# 此处不需忽略
 
 # Obsidian
 .obsidian/
