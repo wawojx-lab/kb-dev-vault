@@ -21,7 +21,9 @@ timestamp: 2026-06-20T02:55:00Z
 ## 关联图谱（flywheel wikilink，单向无环）
 
 - [[synthesis/知识库架构调研]] — OKF + Dynamic Workflows + flywheel
+- [[synthesis/开发流程最佳实践]] — 渐进式开发方法论
 - [[concepts/用户偏好]] — 用户偏好与决策风格
+- [[concepts/接力机制]] — 5 智能体接力
 
 ## 关联导航（markdown）
 
