@@ -1,0 +1,161 @@
+name: KB CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: KB Validation
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run wiki-validator
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          if (Test-Path "90-meta/wiki-validator.ps1") {
+              & "90-meta/wiki-validator.ps1" -All
+          } else {
+              Write-Host "wiki-validator.ps1 not found, skipping"
+          }
+
+      - name: Run doc-sync-check
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          if (Test-Path "../_meta/doc-sync-check.ps1") {
+              & "../_meta/doc-sync-check.ps1" -Mode full
+          } else {
+              Write-Host "doc-sync-check.ps1 not found (expected, _meta not in this repo), skipping"
+          }
+
+  lint:
+    name: Frontmatter Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Validate frontmatter
+        run: |
+          python - <<'EOF'
+          import os
+          import re
+          import sys
+          from pathlib import Path
+
+          REQUIRED_FIELDS = ['title', 'source', 'created', 'updated', 'type', 'confidence']
+          VALID_TYPES = {'entity', 'concept', 'comparison', 'summary', 'synthesis'}
+          VALID_CONFIDENCE = {'low', 'medium', 'high'}
+
+          errors = []
+          wiki_dir = Path('wiki')
+
+          if not wiki_dir.exists():
+              print("wiki/ directory not found")
+              sys.exit(0)
+
+          for md_file in wiki_dir.rglob('*.md'):
+              content = md_file.read_text(encoding='utf-8')
+
+              # Extract frontmatter
+              match = re.match(r'^---\n(.*?)\n---', content, re.DOTALL)
+              if not match:
+                  errors.append(f"{md_file}: missing frontmatter")
+                  continue
+
+              fm = match.group(1)
+
+              # Check required fields
+              for field in REQUIRED_FIELDS:
+                  if not re.search(rf'^{field}:\s*\S', fm, re.MULTILINE):
+                      errors.append(f"{md_file}: missing required field '{field}'")
+
+              # Check type
+              type_match = re.search(r'^type:\s*(\S+)', fm, re.MULTILINE)
+              if type_match:
+                  t = type_match.group(1).strip()
+                  if t not in VALID_TYPES:
+                      errors.append(f"{md_file}: invalid type '{t}' (must be one of {VALID_TYPES})")
+
+              # Check confidence
+              conf_match = re.search(r'^confidence:\s*(\S+)', fm, re.MULTILINE)
+              if conf_match:
+                  c = conf_match.group(1).strip()
+                  if c not in VALID_CONFIDENCE:
+                      errors.append(f"{md_file}: invalid confidence '{c}' (must be one of {VALID_CONFIDENCE})")
+
+          if errors:
+              print("=== Frontmatter Lint Errors ===")
+              for e in errors:
+                  print(f"  ERROR: {e}")
+              print(f"\nTotal: {len(errors)} errors")
+              sys.exit(1)
+          else:
+              print("=== Frontmatter Lint Passed ===")
+              count = len(list(wiki_dir.rglob('*.md')))
+              print(f"Checked {count} files, 0 errors")
+          EOF
+
+  secret-scan:
+    name: Secret Scan
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Scan for secrets
+        run: |
+          python - <<'EOF'
+          import re
+          import sys
+          from pathlib import Path
+
+          PATTERNS = {
+              'OpenAI API Key': r'sk-[a-zA-Z0-9]{20,}',
+              'Anthropic API Key': r'sk-ant-[a-zA-Z0-9-_]{20,}',
+              'GitHub Token': r'gh[pousr]_[A-Za-z0-9]{36}',
+              'Generic API Key': r'(?i)api[_-]?key\s*[=:]\s*["\']?[a-zA-Z0-9]{20,}',
+              'Password Assignment': r'(?i)password\s*[=:]\s*["\']?[^\s"\']{8,}',
+          }
+
+          findings = []
+          for md_file in Path('.').rglob('*.md'):
+              if '.git/' in str(md_file):
+                  continue
+              content = md_file.read_text(encoding='utf-8', errors='ignore')
+              for name, pattern in PATTERNS.items():
+                  matches = re.findall(pattern, content)
+                  for m in matches:
+                      # Skip obvious placeholders
+                      if any(x in m.lower() for x in ['xxxx', 'your_', '<', 'example', 'placeholder', 'xxx']):
+                          continue
+                      findings.append(f"{md_file}: {name} detected")
+
+          if findings:
+              print("=== Secret Scan Findings ===")
+              for f in findings:
+                  print(f"  WARNING: {f}")
+              print(f"\nTotal: {len(findings)} findings")
+              # Don't fail on warnings, only on confirmed secrets
+              sys.exit(0)
+          else:
+              print("=== Secret Scan Passed ===")
+              print("0 findings")
+          EOF

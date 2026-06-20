@@ -65,3 +65,5 @@ pnpm-lock.yaml
 .vscode/
 .idea/
 *.iml
+
+test-results.xml
