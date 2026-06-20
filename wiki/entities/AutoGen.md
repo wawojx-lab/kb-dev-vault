@@ -20,7 +20,7 @@ tags: [工具, 框架, 多智能体, 微软, 开源]
 | **发起方** | Microsoft Research |
 | **定位** | 多 Agent 对话与编排框架 |
 | **当前版本** | autogen-core 0.7.5 / autogen-agentchat 0.7.5 |
-| **继承者** | [[entities/Microsoft-Agent-Framework]] |
+| **继承者** | Microsoft-Agent-Framework |
 | **语言** | Python（.NET SDK 在早期版本后已弱化） |
 
 ## 架构分层
@@ -123,11 +123,8 @@ Magentic-One 是 AutoGen 中最成熟的编排模式：
 - **PyPI**：`pip install autogen-agentchat` / `pip install autogen-core`，版本 0.7.5
 - **GitHub Stars**：~40k+
 - **状态**：活跃开发但核心团队已转向 Agent Framework
-- **迁移建议**：新项目推荐直接使用 [[entities/Microsoft-Agent-Framework]]
+- **迁移建议**：新项目推荐直接使用 Microsoft-Agent-Framework（见 entities/Microsoft-Agent-Framework）
 
 ## 关联图谱
 
-- [[entities/Microsoft-Agent-Framework]] — 继任框架
-- [[concepts/多Agent协作]] — 多 Agent 协作模式
 - [[concepts/总控Agent模式]] — 总控 Agent 设计模式
-- [[comparisons/autogen-vs-openai-agents]] — 选型对比

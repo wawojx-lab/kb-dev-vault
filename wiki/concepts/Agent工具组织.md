@@ -163,6 +163,5 @@ ADK 的 MCP 支持实现了动态工具发现：Agent 运行时连接 MCP Server
 - [[entities/Google-ADK]] — ADK 框架详解
 - [[entities/LangGraph]] — LangGraph ToolNode
 - [[entities/AutoGen]] — AutoGen FunctionTool
-- [[concepts/Agent状态管理]] — 工具如何读写状态
 - [[concepts/接力机制]] — Agent 间传递上下文
 - [[concepts/总控Agent模式]] — Agent-as-Tool 的编排拓扑

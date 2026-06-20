@@ -131,9 +131,8 @@ AWS Bedrock AgentCore vs Microsoft Azure AI Foundry Agent Service — 云厂商 
 
 - [[entities/Amazon-Bedrock]]
 - [[entities/Strands]]
-- [[concepts/企业Agent集成]]
-- [[concepts/安全边界模式]]
-- [[summaries/建设聚合模型平台]]
+- [[concepts/Agent状态管理]]
+- [[concepts/工作流图]]
 
 ## 参考资料
 - [Bedrock AgentCore 定价](https://aws.amazon.com/cn/bedrock/agentcore/pricing/)

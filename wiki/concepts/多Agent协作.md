@@ -138,6 +138,4 @@ Agent A ──handoff──→ Agent B ──handoff──→ Agent A
 - [[concepts/任务拆解]] — 任务拆解方法论
 - [[concepts/总控Agent模式]] — 总控 Agent 详细模式
 - [[concepts/接力机制]] — 跨智能体接力协议
-- [[entities/AutoGen]] — GroupChat 首创者
-- [[entities/Microsoft-Agent-Framework]] — 统一编排框架
-- [[entities/LangGraph]] — 图编排运行时
+- [[concepts/工作流图]] — Agent 编排的底层图结构

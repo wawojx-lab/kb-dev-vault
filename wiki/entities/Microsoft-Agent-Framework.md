@@ -132,8 +132,5 @@ result = await agent.run("What is the largest city in France?")
 ## 关联图谱
 
 - [[entities/AutoGen]] — 前身框架
-- Semantic Kernel — 前身框架
-- [[concepts/多Agent协作]] — 多 Agent 协作模式
 - [[concepts/接力机制]] — 跨智能体接力协议
-- [[comparisons/autogen-vs-openai-agents]] — 选型对比
 

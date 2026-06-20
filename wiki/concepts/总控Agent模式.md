@@ -117,7 +117,5 @@ def supervisor(inputs: dict):
 
 ## 关联图谱
 
-- [[entities/LangGraph]] — LangGraph 框架
-- [[concepts/工作流图]] — 可追踪工作流图设计
 - [[concepts/接力机制]] — 跨 AI 智能体接力协议
 - [[concepts/DAG-思维]] — DAG 设计基础

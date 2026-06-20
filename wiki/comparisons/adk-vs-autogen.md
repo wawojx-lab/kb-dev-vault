@@ -145,7 +145,6 @@ conversation history → 无显式 state
 
 - 需要图工作流 → 选 [[entities/LangGraph]]
 - 需要企业级中间件 → 选 [[entities/Microsoft-Agent-Framework]]
-- 需要 AWS 集成 → 选 [[entities/Amazon-Bedrock]]
 
 ## 未来趋势
 

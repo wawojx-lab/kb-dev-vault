@@ -117,12 +117,10 @@ Agent 代表"用户"访问系统，权限继承用户。
 
 ## 关联图谱
 
-- [[entities/Amazon-Bedrock]]
-- [[entities/Strands]]
-- [[concepts/安全边界模式]]
 - [[concepts/工作流图]]
-- [[comparisons/bedrock-vs-azure-ai]]
-- [[summaries/建设聚合模型平台]]
+- [[concepts/安全边界模式]]
+- [[concepts/Agent工具组织]]
+- [[concepts/Agent状态管理]]
 
 ## 参考资料
 - [Amazon Bedrock AgentCore Gateway](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html)

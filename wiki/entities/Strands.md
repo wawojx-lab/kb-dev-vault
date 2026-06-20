@@ -100,10 +100,9 @@ response = agent("100万的8%年化收益5年后是多少？")
 
 ## 关联图谱
 
-- [[entities/Amazon-Bedrock]]
 - [[entities/LangGraph]]
+- [[concepts/安全边界模式]]
 - [[concepts/企业Agent集成]]
-- [[comparisons/bedrock-vs-azure-ai]]
 - [[summaries/建设聚合模型平台]]
 
 ## 参考资料

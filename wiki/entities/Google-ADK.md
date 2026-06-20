@@ -83,7 +83,7 @@ LlmAgent 的 `sub_agents` 属性启用**隐式委派**：当 LLM 判断当前任
 
 ## 工具集成（Tool Integration）
 
-ADK 的工具系统分四层，详见 [[concepts/Agent工具组织]]：
+ADK 的工具系统分四层（详见 concepts/Agent工具组织）：
 
 | 工具类型 | 说明 | 示例 |
 |---------|------|------|
@@ -115,7 +115,7 @@ tool = FunctionTool(func=query_database)
 
 ## 状态管理（State Management）
 
-ADK 的状态系统以 **Session** 为核心，详见 [[concepts/Agent状态管理]]：
+ADK 的状态系统以 **Session** 为核心（详见 concepts/Agent状态管理）：
 
 ```
 Session
@@ -243,7 +243,7 @@ adk test my_agent --test-data test.json
 | **部署** | Vertex AI / Cloud Run / GKE | LangSmith Deploy | 无内置 |
 | **互操作** | A2A 协议原生支持 | 无 | 无 |
 
-详见 [[comparisons/adk-vs-autogen]]
+详见 ADK vs AutoGen 对比页。
 
 ## 局限性
 
@@ -264,9 +264,6 @@ adk test my_agent --test-data test.json
 
 ## 关联图谱
 
-- [[concepts/Agent工具组织]] — ADK 工具组织模式详解
-- [[concepts/Agent状态管理]] — ADK 状态管理模式详解
-- [[comparisons/adk-vs-autogen]] — ADK vs AutoGen 对比
 - [[entities/LangGraph]] — 另一种编排框架
 - [[entities/AutoGen]] — 另一种多 Agent 框架
 - [[concepts/总控Agent模式]] — Supervisor 架构在 ADK 中的实现

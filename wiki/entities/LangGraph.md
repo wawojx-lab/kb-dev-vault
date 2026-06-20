@@ -102,7 +102,4 @@ agent.invoke({"messages": [HumanMessage("hello")]}, config)
 
 ## 关联图谱
 
-- [[concepts/工作流图]] — 可追踪工作流图设计
 - [[concepts/DAG-思维]] — DAG 设计基础
-- [[comparisons/langgraph-vs-dag]] — 与现有 DAG 思维对比
-- [[concepts/总控Agent模式]] — 总控 agent 设计模式

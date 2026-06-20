@@ -73,7 +73,7 @@ DAG 思维通过手动维护（`flywheel healthy` 检查拓扑健康度）。Lan
 
 | 场景 | 推荐方案 |
 |------|---------|
-| 知识库结构设计（[[flywheel]]） | **DAG 思维** |
+| 知识库结构设计（[[entities/flywheel]]） | **DAG 思维** |
 | 任务分解与依赖分析 | **DAG 思维** |
 | 简单线性 Agent（单一 LLM + 工具） | **DAG 思维** 或 LangGraph 均可用 |
 | 复杂多步 Agent（循环/条件/HIL） | **LangGraph 工作流图** |
@@ -103,6 +103,3 @@ DAG 思维通过手动维护（`flywheel healthy` 检查拓扑健康度）。Lan
 ## 关联图谱
 
 - [[concepts/DAG-思维]] — DAG 设计基础
-- [[concepts/工作流图]] — 可追踪工作流图设计
-- [[entities/LangGraph]] — LangGraph 框架
-- [[concepts/总控Agent模式]] — 总控 agent 设计模式
