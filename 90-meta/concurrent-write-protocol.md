@@ -154,8 +154,8 @@ kb-lock.ps1 status
 
 | 工具 | 路径 | 用途 |
 |------|------|------|
-| kb-lock.ps1 | `d:\xiangmu\_meta\kb-lock.ps1` | 锁 acquire/release/is-held/status |
-| kb-safe-push.ps1 | `d:\xiangmu\_meta\kb-safe-push.ps1` | 安全 push 包装（lock+commit+rebase+push+unlock） |
+| kb-lock.ps1 | `d:\xiangmu\_kb\90-meta\kb-lock.ps1` | 锁 acquire/release/is-held/status |
+| kb-safe-push.ps1 | `d:\xiangmu\_kb\90-meta\kb-safe-push.ps1` | 安全 push 包装（lock+commit+rebase+push+unlock） |
 | wiki-validator.ps1 | `d:\xiangmu\_kb\90-meta\wiki-validator.ps1` | 页面校验（P1-2） |
 | pre-commit.ps1 | `d:\xiangmu\_kb\.git\hooks\pre-commit.ps1` | lint + secret scan（P0-1/P0-2） |
 
@@ -165,9 +165,9 @@ kb-lock.ps1 status
 
 ```
 写入 _kb/ 时遵循 concurrent-write-protocol.md：
-1. 先 acquire lock: powershell -File d:\xiangmu\_meta\kb-lock.ps1 acquire -Holder <你> -Purpose "<目的>"
+1. 先 acquire lock: powershell -File d:\xiangmu\_kb\90-meta\kb-lock.ps1 acquire -Holder <你> -Purpose "<目的>"
 2. 写入 + 校验
-3. 安全 push: powershell -File d:\xiangmu\_meta\kb-safe-push.ps1 -CommitMsg "<msg>" -Holder <你>
+3. 安全 push: powershell -File d:\xiangmu\_kb\90-meta\kb-safe-push.ps1 -CommitMsg "<msg>" -Holder <你>
 ```
 
 ## 8. 健康度指标
