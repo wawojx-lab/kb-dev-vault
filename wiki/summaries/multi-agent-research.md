@@ -16,7 +16,7 @@ tags: [协调, 多智能体, 调研]
 ## 项目阶段
 - 启动：2026-06-20
 - 计划完成：2026-06-24
-- 当前阶段：5/6 完成（任务 1-3-5-6 完成，任务 4 进行中，任务 2 完成）
+- 当前阶段：6/6 完成（任务 1-6 全部完成）
 
 ## 6 任务分配
 
@@ -25,7 +25,7 @@ tags: [协调, 多智能体, 调研]
 | 1 | Microsoft Agent Framework / AutoGen | Codex | 2h | ✅ 完成 |
 | 2 | Google ADK | Claude Code | 2h | ✅ 完成（2026-06-20） |
 | 3 | LangGraph | OpenCode | 2h | ✅ 完成 |
-| 4 | OpenAI Agents SDK | Hermes | 6h |
+|| 4 | OpenAI Agents SDK | Hermes | 6h | ✅ 完成（2026-06-20） |
 | 5 | Amazon Bedrock / Strands | Trae | 13h | ✅ 完成（f31f0ec） |
 | 6 | 本地业务实践 | 混合 | 2h | ✅ 完成（2026-06-20） |
 
@@ -68,6 +68,28 @@ tags: [协调, 多智能体, 调研]
 3. SessionService 三级状态（Session / User / App）是 ADK 的生产级优势，AutoGen 无内置持久化
 4. MCP 原生集成使 ADK 工具生态更开放（对比 AutoGen 无 MCP 支持）
 5. A2A 协议原生支持是 ADK 的互操作护城河，但生态尚年轻（2025-04 发布）
+
+## 任务 3 完成记录（OpenCode，2026-06-20）
+
+**产出页面**：待补充（OpenCode 调研）
+
+## 任务 4 完成记录（Hermes，2026-06-20）
+
+**产出页面**：
+- [[entities/OpenAI-Agents-SDK]] — SDK 框架实体（Agent/Handoff/Guardrail/Tools/Tracing/MCP 全覆盖）
+- [[concepts/Handoff模式]] — Agent 间任务交接机制（原理/代码/配置参数/适用场景/工程化要点）
+- [[concepts/Guardrail模式]] — Agent 安全边界机制（3 种类型/执行模式/Tripwire/分层防护/工程化要点）
+- [[comparisons/autogen-vs-openai-agents]] — 已有页面，与 AutoGen/Agent Framework 对比（由任务 1 Codex 产出）
+- [[summaries/排查总控仓库脏状态]] — 应用案例：3 Agent 流水线审计 27GB 仓库（6h 任务拆解 + 安全护栏设计）
+
+**关键发现**：
+1. OpenAI Agents SDK 只有 3 个核心原语（Agent / Handoff / Guardrail），是所有框架中最简洁的
+2. Handoff 是代码级接力：Agent 自主决定路由，与文件级接力（接力机制）互补
+3. Guardrail 支持并行/阻塞两种模式，阻塞模式可零 token 消耗拦截违规
+4. Tool Guardrail 是新能力：包裹在函数工具上，每次调用前后运行，比 Agent 级 Guardrail 更细粒度
+5. Agent as Tool vs Handoff 的选择是关键架构决策：前者保持控制权，后者转移控制权
+6. 内置 OpenTelemetry tracing，可观测性优于 AutoGen，与 Agent Framework 持平
+7. MCP 原生集成 + Hosted 工具（WebSearch/FileSearch/CodeInterpreter）是差异化优势
 
 ## 任务 6 完成记录（混合/Trae，2026-06-20）
 
