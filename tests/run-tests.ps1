@@ -1,6 +1,7 @@
 #Requires -Version 5.1
 # Run all Pester tests and report summary
-$ErrorActionPreference = "Stop"
+# Use Continue (not Stop) so external PowerShell processes with non-zero exit codes don't abort test runs
+$ErrorActionPreference = "Continue"
 
 Write-Host "=== KB Pester Test Suite ===" -ForegroundColor Cyan
 Write-Host ""
@@ -39,9 +40,12 @@ Write-Host ("Duration: {0:N1}s" -f $results.Duration.TotalSeconds)
 if ($results.FailedCount -gt 0) {
     Write-Host ""
     Write-Host "=== Failed Tests ===" -ForegroundColor Red
-    foreach ($r in $results.Tests) {
+    # Pester v4 uses TestResult (not Tests)
+    $testResults = $results.TestResult
+    if (-not $testResults) { $testResults = $results.Tests }
+    foreach ($r in $testResults) {
         if ($r.Result -eq "Failed") {
-            Write-Host ("  FAIL: {0}" -f $r.Name) -ForegroundColor Red
+            Write-Host ("  FAIL: [{0}] {1}" -f $r.Describe, $r.Name) -ForegroundColor Red
         }
     }
     exit 1
