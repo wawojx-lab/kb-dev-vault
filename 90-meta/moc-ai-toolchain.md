@@ -5,13 +5,13 @@ source: 个人整理 + flywheel 知识库
 created: 2026-06-19
 updated: 2026-06-20
 confidence: stated
-status: developing
+status: mature
 tags: [moc, ai-toolchain]
 ---
 
 # AI 工具链 MOC
 
-> AI 工具链相关笔记的导航地图。**2026-06-20 更新**：合并旧 4 层架构为 3 层，统一用 kb MCP 替代 obsidian MCP
+> AI 工具链相关笔记的导航地图。**2026-06-20 更新**：多 Agent 框架调研 6/6 完成，知识库 54 页 185 边，远程接入 Git remote 主方案已落地
 
 ## 智能体（5 个，均可写入 vault）
 
@@ -54,14 +54,15 @@ _kb/
 - [Frontmatter 模板](frontmatter-templates.md) — 各类笔记 frontmatter
 - [Obsidian 插件配置](obsidian-plugins.md) — Smart Connections + kb MCP
 
-### wiki 核心笔记
+### wiki 核心笔记（54 页，详见 [index.md](index.md)）
 
-- [用户偏好](../wiki/concepts/用户偏好.md) — 沟通/UI/工作流偏好（账号切换兜底）
-- [知识库架构调研](../wiki/synthesis/知识库架构调研.md) — OKF + Dynamic Workflows + flywheel
-- [知识库下一步调研五方向](../wiki/synthesis/知识库下一步调研五方向.md) — 5 方向决策
-- [知识库下一步-执行清单](../wiki/synthesis/知识库下一步-执行清单.md) — 5 方向执行计划
+**核心方法论**：[接力机制](../wiki/concepts/接力机制.md) · [任务拆解](../wiki/concepts/任务拆解.md) · [渐进式开发](../wiki/concepts/渐进式开发.md) · [DAG-思维](../wiki/concepts/DAG-思维.md) · [用户偏好](../wiki/concepts/用户偏好.md)
 
-### 项目摘要（wiki/summaries/）
+**AI Agent 框架调研（6/6 完成）**：[AutoGen](../wiki/entities/AutoGen.md) · [Google-ADK](../wiki/entities/Google-ADK.md) · [LangGraph](../wiki/entities/LangGraph.md) · [OpenAI-Agents-SDK](../wiki/entities/OpenAI-Agents-SDK.md) · [Amazon-Bedrock](../wiki/entities/Amazon-Bedrock.md) · [Strands](../wiki/entities/Strands.md) · [调研总报告](../wiki/summaries/multi-agent-research.md)
+
+**知识库架构**：[知识库架构调研](../wiki/synthesis/知识库架构调研.md) · [知识库下一步调研五方向](../wiki/synthesis/知识库下一步调研五方向.md) · [知识库下一步-执行清单](../wiki/synthesis/知识库下一步-执行清单.md) · [开发流程最佳实践](../wiki/synthesis/开发流程最佳实践.md) · [任务拆解方法论](../wiki/synthesis/任务拆解方法论.md)
+
+### 项目摘要（wiki/summaries/，4 个）
 
 - [stock-sim](../wiki/summaries/stock-sim.md) — 股票策略模拟系统
 - [TradingAgents](../wiki/summaries/TradingAgents.md) — 多智能体交易系统
@@ -92,15 +93,18 @@ _kb/
 
 详见 [km-agent-workflow.md](km-agent-workflow.md) 的"flywheel 工具调用约定"段。
 
-## 远程接入（待办，见步骤 6）
+## 远程接入（2026-06-20 落地，详见 [remote-access.md](remote-access.md)）
 
-- Tailscale（VPN 局域网）
-- Syncthing（点对点文件同步）
-- Git remote（**当前用**，kb-dev-vault 私有仓）
+- **Git remote（主方案，已落地）**：`https://github.com/wawojx-lab/kb-dev-vault`（私有仓）
+  - 远程设备 `git clone` + 定期 `git pull` / `git push`
+  - 15 commits 已推送，最新 commit `131789c`
+- **Tailscale（备选）**：VPN 局域网，中国大陆稳定性待验证
+- **Syncthing（不推荐）**：md 文件并发编辑冲突风险高
 
 ## 待补充
 
-- [ ] flywheel LLM API Key 配置（kb compile/ingest 需要）
-- [ ] 远程接入三方案对比（步骤 6）
-- [ ] 16+ 活跃子项目的 PROJECT_STATUS（用通用 Codex 提示词）
+- [ ] flywheel LLM API Key 配置（kb compile/ingest 需要，当前 lint/stats/graph-viz 不需要）
+- [x] ~~远程接入三方案对比（步骤 6）~~ → 已落地 Git remote 主方案，详见 [remote-access.md](remote-access.md)
+- [x] ~~16+ 活跃子项目的 PROJECT_STATUS~~ → 35 项目全覆盖（2026-06-20 完成）
 - [ ] 书籍拆解（待知识管家处理）
+- [ ] 多 Agent 自动调度（Hermes cron 触发，不用手动启动每个 agent）— 复盘阶段细化

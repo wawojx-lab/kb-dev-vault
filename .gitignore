@@ -16,6 +16,9 @@ env/
 .cache/
 .sweep_orphan_tmp/
 
+# 自动生成的报告（每日维护报告、同步日志，本地查看即可）
+90-meta/reports/
+
 # Obsidian
 .obsidian/
 .obsidian.cache/

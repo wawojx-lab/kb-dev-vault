@@ -5,7 +5,7 @@ source: Trae + Claude Code 协作 + 飞轮知识编译
 created: 2026-06-19
 updated: 2026-06-20
 confidence: stated
-status: developing
+status: mature
 tags: [meta, knowledge-management, flywheel]
 ---
 
@@ -108,6 +108,33 @@ kb graph-viz --output graph.mmd
 - 新账号第一次会话时，智能体读 `wiki/concepts/用户偏好.md` 恢复偏好
 - vault 是文件，和账号无关，永远在
 
+## 双 vault 同步流程（2026-06-20 落地）
+
+### 原则
+- `_kb_personal/` 与 `_kb/` 物理隔离，**不自动全量同步**
+- 只有 frontmatter 标记 `share_to_dev: true` 的文件才同步到 `_kb/raw/`
+- 同步到 `raw/` 后，由知识管家后续编译到 `wiki/`（不自动编译）
+
+### 脚本
+- `_kb_flywheel\kb-sync-personal.ps1`
+- 扫描 `_kb_personal/` 下所有 .md，检查 frontmatter `share_to_dev: true`
+- 标记的文件复制到 `_kb/raw/personal-{flat-path}.md`
+- 日志输出到 `_kb\90-meta\reports\sync-personal.log`
+
+### 触发方式
+- 手动：`powershell.exe -ExecutionPolicy Bypass -File D:\xiangmu\_kb_flywheel\kb-sync-personal.ps1`
+- 可选周调度（未注册，按需添加到 Task Scheduler）
+
+### 标记示例
+在 `_kb_personal/02-计划/计划规划.md` 的 frontmatter 加：
+```yaml
+---
+share_to_dev: true   # 同步到开发域 raw/
+type: plan
+created: 2026-06-20
+---
+```
+
 ## wikilink 约定（必读）
 
 flywheel 的两个 lint 限制：
@@ -121,6 +148,23 @@ DAG 设计原则：
 
 ## 运行方式
 
-- 手动触发：用户说"整理知识库"或"跑 kb lint"
-- 定时触发（待定）：每周日 09:00 自动跑 kb lint + stats
-- 详细定时配置见远程接入细化阶段
+### 手动触发
+- 用户说"整理知识库"或"跑 kb lint"
+- 知识管家 Agent（Claude Code + flywheel MCP）响应
+
+### 自动触发（2026-06-20 落地）
+- **脚本**：`_kb_flywheel\kb-daily.ps1`
+- **调度**：Windows Task Scheduler 任务名 `KB-Daily-Maintenance`
+- **时间**：每天 09:00（Asia/Shanghai）
+- **动作**：跑 `kb lint` + `kb stats` + `kb graph-viz`，报告输出到 `_kb\90-meta\reports\YYYY-MM-DD.md`
+- **失败处理**：脚本非 0 退出时，报告保留并在下次运行时覆盖检查
+- **注册命令**（管理员 PowerShell）：
+  ```powershell
+  schtasks /Create /TN "KB-Daily-Maintenance" /TR "powershell.exe -ExecutionPolicy Bypass -File D:\xiangmu\_kb_flywheel\kb-daily.ps1" /SC DAILY /ST 09:00 /RU "%USERNAME%" /IT
+  ```
+- **查看/修改**：`schtasks /Query /TN "KB-Daily-Maintenance" /V /FO LIST`
+- **手动触发一次**：`schtasks /Run /TN "KB-Daily-Maintenance"`
+
+### Memory 同步触发
+- 每次 Trae 会话结束时，Trae 自动更新 `~/.trae-cn/memory/` 下的 user_profile.md / project_memory.md
+- 知识管家每日任务会把这些内容同步到 `wiki/concepts/用户偏好.md`（见下方 Memory 同步流程）

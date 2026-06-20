@@ -81,7 +81,7 @@ triage_agent = Agent(
 )
 ```
 
-详见 → [[concepts/Handoff模式]]
+详见 → [Handoff模式](../concepts/Handoff模式.md)
 
 ### 3. Guardrail（护栏）
 
@@ -106,7 +106,7 @@ agent = Agent(
 )
 ```
 
-详见 → [[concepts/Guardrail模式]]
+详见 → [Guardrail模式](../concepts/Guardrail模式.md)
 
 ## 工具体系
 
@@ -232,16 +232,16 @@ agent = Agent(
 
 | 已有概念 | 与本框架的关系 |
 |---------|--------------|
-| [[concepts/接力机制]] | Handoff 是接力的代码级实现 |
-| [[concepts/渐进式开发]] | SDK 的极简设计适合渐进式集成 |
-| [[concepts/多Agent协作]] | Handoff 模式是协作模式之一 |
-| [[concepts/Guardrail模式]] | 安全边界的工程化实现 |
-| [[concepts/Handoff模式]] | Handoff 模式详解 |
-| [[comparisons/autogen-vs-openai-agents]] | 选型对比 |
+| [接力机制](../concepts/接力机制.md) | Handoff 是接力的代码级实现 |
+| [渐进式开发](../concepts/渐进式开发.md) | SDK 的极简设计适合渐进式集成 |
+| [多Agent协作](../concepts/多Agent协作.md) | Handoff 模式是协作模式之一 |
+| [Guardrail模式](../concepts/Guardrail模式.md) | 安全边界的工程化实现 |
+| [Handoff模式](../concepts/Handoff模式.md) | Handoff 模式详解 |
+| [autogen-vs-openai-agents](../comparisons/autogen-vs-openai-agents.md) | 选型对比 |
 
 ## 关联图谱
 
-- [[concepts/Handoff模式]] — Agent 间任务交接详解
-- [[concepts/Guardrail模式]] — 安全边界机制详解
-- [[comparisons/autogen-vs-openai-agents]] — 与 AutoGen/Agent Framework 对比
-- [[summaries/排查总控仓库脏状态]] — 应用案例
+- [Handoff模式](../concepts/Handoff模式.md) — Agent 间任务交接详解
+- [Guardrail模式](../concepts/Guardrail模式.md) — 安全边界机制详解
+- [autogen-vs-openai-agents](../comparisons/autogen-vs-openai-agents.md) — 与 AutoGen/Agent Framework 对比
+- [排查总控仓库脏状态](../summaries/排查总控仓库脏状态.md) — 应用案例

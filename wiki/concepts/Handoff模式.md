@@ -174,6 +174,6 @@ Handoff 是**代码级的接力**：Agent A 完成工作后，通过工具调用
 ## 关联图谱
 
 - [[entities/OpenAI-Agents-SDK]] — 所属框架
-- [[concepts/Guardrail模式]] — 安全边界（与 Handoff 配合使用）
+- [Guardrail模式](../concepts/Guardrail模式.md) — 安全边界（与 Handoff 配合使用）
 - [[concepts/多Agent协作]] — 协作模式全景
 - [[concepts/接力机制]] — 文件级接力协议

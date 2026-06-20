@@ -5,7 +5,7 @@ source: 个人偏好 + Obsidian 社区插件市场
 created: 2026-06-19
 updated: 2026-06-20
 confidence: stated
-status: developing
+status: mature
 tags: [meta, obsidian, plugins]
 ---
 

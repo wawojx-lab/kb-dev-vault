@@ -22,3 +22,4 @@ tags: [meta, changelog, vault]
 | 2026-06-20 | Git 远程 | kb-dev-vault 私有仓（gh CLI 创建）+ 推送 commit `e430c35` `f5b8b75` |
 | 2026-06-20 | wikilink DAG | 8 文件 wikilink 重设计：单向无环 DAG（10 条有向边，0 cycle，1 组件）|
 | 2026-06-20 | 90-meta/ 重写 | km-agent-workflow / frontmatter-templates / obsidian-plugins / moc-ai-toolchain 4 文件 + index.md 全部更新为 OKF 5 type 封闭词汇 + 所有智能体可写 + kb MCP 替代 obsidian MCP |
+| 2026-06-20（22:43） | step 5 知识管家治理 | index.md 列全 54 页面（6/6 调研完成）+ 图谱指标更新（54 节点 185 边）+ km-agent-workflow 落地定时任务 + moc-ai-toolchain 远程接入状态更新 + 4 文件 status → mature |

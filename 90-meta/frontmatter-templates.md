@@ -5,7 +5,7 @@ source: Google OKF v0.1 + flywheel WIKI_SUBDIR_TO_TYPE
 created: 2026-06-19
 updated: 2026-06-20
 confidence: stated
-status: developing
+status: mature
 tags: [meta, frontmatter, okf, flywheel]
 ---
 
