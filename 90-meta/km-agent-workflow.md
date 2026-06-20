@@ -1,90 +1,126 @@
+---
+type: index
+title: 知识管家 Agent 整理流程
+source: Trae + Claude Code 协作 + 飞轮知识编译
+created: 2026-06-19
+updated: 2026-06-20
+confidence: stated
+status: developing
+tags: [meta, knowledge-management, flywheel]
+---
+
 # 知识管家 Agent 整理流程
 
-> 知识管家 Agent（Claude Code）是 vault 唯一有写权限的智能体。
-> 本文件定义其整理流程和触发条件。
+> **写入权限（2026-06-20 更新）**：取消"单点写入"限制，**所有智能体可写** raw/wiki/90-meta；知识管家（Claude Code + flywheel）负责**治理**。
+> 4 层架构（raw/wiki/research/projects）已合并为 3 层（raw/wiki/90-meta）+ wiki 内 flywheel 5 type 子目录。
 
 ## 职责
-1. 定期整理 `00-inbox/` → 分发到各目录
-2. 拆解书籍/长文 → 结构化笔记
-3. 维护 `90-meta/` 索引和 MOC
-4. 同步 Trae memory 关键内容到 vault（账号切换兜底）
+
+1. **lint 检查** — 定期跑 `kb lint` 检查 wiki 内 frontmatter、wikilink、type 词汇
+2. **stats 统计** — 定期跑 `kb stats` 看页面数/边数/PageRank
+3. **图谱可视化** — 跑 `kb graph-viz` 输出 Mermaid 知识图谱
+4. **维护 90-meta/** — 索引（index.md）+ frontmatter 模板 + 整理日志
+5. **同步 Trae memory** — 把 user_profile.md / project_memory.md 关键内容同步到 wiki/concepts/（账号切换兜底）
 
 ## 整理流程
 
 ### 触发条件（满足任一即触发）
-- `00-inbox/` 文件数 ≥ 20
+- `raw/` 文件数 ≥ 20
 - 距上次整理超过 7 天
 - 用户手动触发（"整理一下知识库"）
 
-### Step 1：扫描 inbox
-读取 `00-inbox/` 下所有 .md 文件，解析 frontmatter
+### Step 1：扫描 raw 源
 
-### Step 2：按 type 分发
-- `type=project` → 移动到 `10-projects/[project 字段值]/`
-  - 目标目录不存在则创建
-- `type=area` → 移动到 `20-areas/[area 字段值]/`
-- `type=resource` → 移动到 `30-resources/`
-  - 书籍类 → `30-resources/books/[标题]/`
-  - 其他 → `30-resources/`
+读取 `raw/` 下所有 .md 文件，解析 frontmatter（type/source/created/updated/tags）
 
-### Step 3：处理无 frontmatter 的文件
-- 尝试从内容推断 type（含项目名 → project，含主题关键词 → area）
-- 无法推断 → 标记为"待处理"，在文件名加 `[待处理]` 前缀，留在 inbox
+### Step 2：按 OKF 5 type 分发
+
+wiki/ 下固定 5 个子目录，子目录名 = type：
+
+| 源 type | 目标子目录 | 飞轮推断 type |
+|--------|----------|------------|
+| `concept` | `wiki/concepts/` | concept |
+| `entity` | `wiki/entities/` | entity |
+| `comparison` | `wiki/comparisons/` | comparison |
+| `summary` | `wiki/summaries/` | summary |
+| `synthesis` | `wiki/synthesis/` | synthesis |
+| 其他 raw 笔记 | 留在 raw/ | 不参与图谱 |
+
+> 5 type 词汇来自 flywheel `WIKI_SUBDIR_TO_TYPE`（`config.py:597-603`）的封闭词汇表
+> frontmatter `type` 字段是元数据，**不**参与 flywheel 的 type 推断（flywheel 看子目录名）
+
+### Step 3：处理无 frontmatter / type 错误的文件
+
+- 尝试从内容推断 type（含项目名 → summary，含主题关键词 → concept）
+- 无法推断 → 标记为"待处理"，在文件名加 `[待处理]` 前缀，留在 raw
 - 提醒用户手动分类
 
 ### Step 4：更新索引
-- 更新 `90-meta/index.md`，记录新增笔记
-- 若某项目/主题笔记数 ≥ 5，创建或更新对应 MOC
 
-### Step 5：清理 inbox
-- 已分发的文件从 inbox 删除
-- 记录整理日志到 `90-meta/vault-changelog.md`（vault 整理日志，区别于 `_meta/CHANGELOG.md` 规范变更日志）
+- 更新 [index.md](index.md)，按 type 列出 wiki 笔记
+- 若某概念笔记数 ≥ 5，创建或更新对应 MOC
+
+### Step 5：清理 raw
+
+- 已分发的文件从 raw 删除
+- 记录整理日志到 [vault-changelog.md](vault-changelog.md)
 
 ### Step 6：超期提醒
-- 检查 inbox 中超过 30 天未分发的文件
+
+- 检查 raw 中超过 30 天未分发的文件
 - 列出清单提醒用户处理
 
-## 书籍拆解流程
+## flywheel 工具调用约定
 
-### 触发：用户提供书籍内容（文本/PDF/链接）
+```bash
+# 必传 KB_PROJECT_ROOT，否则去找 flywheel demo
+export KB_PROJECT_ROOT=d:\xiangmu\_kb
 
-### Step 1：通读
-- 用 Claude Code 读取全文
-- 提取核心观点、方法论、案例
+# lint — 12 项检查（frontmatter/wikilink/cycles/dead_links/orphan/staleness/...）
+kb lint
 
-### Step 2：结构化输出
-在 `30-resources/books/[书名]/` 下创建：
-- `核心原则.md` — 10 条以内的核心原则
-- `执行方法论.md` — 可操作的步骤
-- `案例映射.md` — 书中案例如何映射到用户的项目
-- `原文摘要.md` — 关键段落摘录（版权合规：单条摘录不超过 200 字，总量不超过 1000 字，注明页码）
+# stats — 必须显式传 --wiki-dir（flywheel _validate_wiki_dir(None) bug）
+kb stats --wiki-dir d:\xiangmu\_kb\wiki
 
-### Step 3：关联
-- 在 `20-areas/` 相关主题笔记中引用该书
-- 更新对应 MOC
+# graph-viz — 输出 Mermaid
+kb graph-viz
 
-### Step 4：智能体引用
-- 在 `_meta/AGENTS.md` 或项目 AGENTS.md 中添加引用：
-  "执行任务时参考 `_kb/30-resources/books/[书名]/核心原则.md`"
-- 智能体通过 MCP 读取，把原则注入上下文
+# graph-viz 保存到文件
+kb graph-viz --output graph.mmd
+```
 
 ## Memory 同步流程
 
 ### 触发：每次知识管家运行时
 
 ### Step 1：读取 Trae memory
+
 - 读取 `C:\Users\65128\.trae-cn\memory\user_profile.md`（用户级偏好）
-- 读取 `C:\Users\65128\.trae-cn\memory\projects\-d-xiangmu\project_memory.md`（工作区级项目记忆，含多项目信息）
+- 读取 `C:\Users\65128\.trae-cn\memory\projects\-d-xiangmu\project_memory.md`（工作区级项目记忆）
 
 ### Step 2：同步到 vault
-- user_profile 内容 → `20-areas/ai-toolchain/我的偏好.md`（覆盖更新）
-- project_memory 内容 → `20-areas/ai-toolchain/项目记忆.md`（工作区级，整体同步，不按项目拆分，因为 project_memory.md 是工作区级而非项目级）
+
+- user_profile 内容 → `wiki/concepts/用户偏好.md`（覆盖更新）
+- project_memory 内容 → `wiki/synthesis/项目记忆.md`（整体同步，工作区级而非项目级）
 
 ### Step 3：换账号兜底
-- 新账号第一次会话时，智能体读 `20-areas/ai-toolchain/我的偏好.md` 恢复偏好
+
+- 新账号第一次会话时，智能体读 `wiki/concepts/用户偏好.md` 恢复偏好
 - vault 是文件，和账号无关，永远在
 
+## wikilink 约定（必读）
+
+flywheel 的两个 lint 限制：
+1. **dead_links 不解析 bare slug** — `[[stock-sim]]` 报死链，必须用 `[[summaries/stock-sim]]` 完整 page_id
+2. **wikilink_cycles 检测严格** — 2-cycle 也算 cycle，**必须单向无环 DAG 设计**
+
+DAG 设计原则：
+- **出度有限**：每个节点建议 1-4 个 wikilink 出度
+- **无环**：拓扑排序后只能从高层引用低层
+- **强引用用 wikilink**（参与图谱），**导航用 markdown 链接**（不参与图谱）
+
 ## 运行方式
-- 手动触发：用户说"整理知识库"或"拆解这本书"
-- 定时触发（Hermes Cron）：每周日 09:00 自动运行整理流程
+
+- 手动触发：用户说"整理知识库"或"跑 kb lint"
+- 定时触发（待定）：每周日 09:00 自动跑 kb lint + stats
 - 详细定时配置见远程接入细化阶段
