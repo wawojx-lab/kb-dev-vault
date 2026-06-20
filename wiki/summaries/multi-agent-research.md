@@ -26,7 +26,7 @@ tags: [协调, 多智能体, 调研]
 | 2 | Google ADK | Claude Code | 2h |
 | 3 | LangGraph | OpenCode | 2h | ✅ 完成 |
 | 4 | OpenAI Agents SDK | Hermes | 6h |
-| 5 | Amazon Bedrock / Strands | Trae | 13h |
+| 5 | Amazon Bedrock / Strands | Trae | 13h | ✅ 完成（f31f0ec） |
 | 6 | 本地业务实践 | 混合 | 2h |
 
 ## 协调计划
