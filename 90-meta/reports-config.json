@@ -1,0 +1,42 @@
+{
+  "reports": [
+    {
+      "name": "weekly-review",
+      "source": "d:\\xiangmu\\_retrospective\\weekly\\",
+      "pattern": "YYYY-WW.md",
+      "level": "snapshot",
+      "snapshotInterval": "monthly",
+      "target": "90-meta/reports/weekly/",
+      "gitRepo": "_kb"
+    },
+    {
+      "name": "cost-report",
+      "source": "d:\\xiangmu\\_meta\\COST-REPORT.md",
+      "level": "never",
+      "target": null,
+      "gitRepo": null
+    },
+    {
+      "name": "system-health",
+      "source": "d:\\xiangmu\\_meta\\SYSTEM-HEALTH.md",
+      "level": "never",
+      "target": null,
+      "gitRepo": null
+    },
+    {
+      "name": "project-health",
+      "source": "d:\\xiangmu\\_meta\\PROJECTS-HEALTH.md",
+      "level": "never",
+      "target": null,
+      "gitRepo": null
+    },
+    {
+      "name": "project-archive",
+      "source": "d:\\xiangmu\\_meta\\PROJECT-ARCHIVE-REPORT.md",
+      "level": "snapshot",
+      "snapshotInterval": "quarterly",
+      "target": "90-meta/reports/archive/",
+      "gitRepo": "_kb"
+    }
+  ]
+}
