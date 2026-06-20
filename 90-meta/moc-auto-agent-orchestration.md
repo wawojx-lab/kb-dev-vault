@@ -12,7 +12,7 @@ tags: [moc, auto-generated, agent-orchestration]
 # MOC - agent-orchestration
 
 > Auto-generated Map of Content for tag 'agent-orchestration'.
-> Pages: 11 | Generated: 2026-06-21 00:40
+> Pages: 11 | Generated: 2026-06-21 01:01
 
 ## Pages by Type
 

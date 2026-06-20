@@ -12,7 +12,7 @@ tags: [moc, auto-generated, agent]
 # MOC - agent
 
 > Auto-generated Map of Content for tag 'agent'.
-> Pages: 3 | Generated: 2026-06-21 00:40
+> Pages: 3 | Generated: 2026-06-21 01:01
 
 ## Pages by Type
 
