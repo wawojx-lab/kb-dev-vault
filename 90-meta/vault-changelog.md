@@ -23,3 +23,7 @@ tags: [meta, changelog, vault]
 | 2026-06-20 | wikilink DAG | 8 文件 wikilink 重设计：单向无环 DAG（10 条有向边，0 cycle，1 组件）|
 | 2026-06-20 | 90-meta/ 重写 | km-agent-workflow / frontmatter-templates / obsidian-plugins / moc-ai-toolchain 4 文件 + index.md 全部更新为 OKF 5 type 封闭词汇 + 所有智能体可写 + kb MCP 替代 obsidian MCP |
 | 2026-06-20（22:43） | step 5 知识管家治理 | index.md 列全 54 页面（6/6 调研完成）+ 图谱指标更新（54 节点 185 边）+ km-agent-workflow 落地定时任务 + moc-ai-toolchain 远程接入状态更新 + 4 文件 status → mature |
+| 2026-06-21（02:25） | 闭环进程 | dba3a0e Pester 测试（kb-lock/wiki-validator/kb-safe-push）+ 开发流程多维评分更新到 93 |
+| 2026-06-21（10:48） | 远程接入 | 8132bca 移动远程访问指南（Tailscale + SSH + RDP）+ 866cd7e confidence 修复 |
+| 2026-06-21（12:16） | 知识库新增 | 0904afb 马斯克方法论（58 条 / 5 大类）+ 反 AI 化 UI 设计（8 维度 / 15 硬性检查）|
+| 2026-06-21（12:26） | CI 修复 | f1f22ac VALID_CONFIDENCE 对齐 flywheel（stated/inferred/speculative）+ CI 3 jobs 全 success |
