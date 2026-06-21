@@ -61,7 +61,7 @@ jobs:
 
           REQUIRED_FIELDS = ['title', 'source', 'created', 'updated', 'type', 'confidence']
           VALID_TYPES = {'entity', 'concept', 'comparison', 'summary', 'synthesis'}
-          VALID_CONFIDENCE = {'low', 'medium', 'high'}
+          VALID_CONFIDENCE = {'stated', 'inferred', 'speculative'}
 
           errors = []
           wiki_dir = Path('wiki')
