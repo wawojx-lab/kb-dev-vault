@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   validate:
-    name: KB Validation
+    name: validate
     runs-on: windows-latest
 
     steps:
@@ -39,7 +39,7 @@ jobs:
           }
 
   lint:
-    name: Frontmatter Lint
+    name: lint
     runs-on: ubuntu-latest
 
     steps:
@@ -113,7 +113,7 @@ jobs:
           EOF
 
   secret-scan:
-    name: Secret Scan
+    name: secret-scan
     runs-on: ubuntu-latest
 
     steps:
