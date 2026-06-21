@@ -27,3 +27,5 @@ tags: [meta, changelog, vault]
 | 2026-06-21（10:48） | 远程接入 | 8132bca 移动远程访问指南（Tailscale + SSH + RDP）+ 866cd7e confidence 修复 |
 | 2026-06-21（12:16） | 知识库新增 | 0904afb 马斯克方法论（58 条 / 5 大类）+ 反 AI 化 UI 设计（8 维度 / 15 硬性检查）|
 | 2026-06-21（12:26） | CI 修复 | f1f22ac VALID_CONFIDENCE 对齐 flywheel（stated/inferred/speculative）+ CI 3 jobs 全 success |
+| 2026-06-21（12:17） | 知识库合成 | ba81f45 系统深度审查（68/100）+ 4 层同步防御机制设计 |
+| 2026-06-21（12:30） | MOC 合并 | 76f0795 合并 4 组重叠 MOC（20→12）：agent 三件套→agent-orchestration；工具 4 件套→工具；对比/选型→选型；图论→知识图谱。validator PASS（59 文件 / 0 错 / 55 警）|
