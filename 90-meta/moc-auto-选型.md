@@ -12,7 +12,7 @@ tags: [moc, auto-generated, 选型]
 # MOC - 选型
 
 > Auto-generated Map of Content for tag '选型'.
-> Pages: 8 | Generated: 2026-06-21 01:01
+> Pages: 8 | Generated: 2026-06-21 12:03
 
 ## Pages by Type
 
@@ -34,13 +34,13 @@ tags: [moc, auto-generated, 选型]
 - `对比` (4 pages)
 - `agent-orchestration` (3 pages)
 - `方法论` (2 pages)
-- `编程范式` (1 pages)
+- `openai` (1 pages)
 - `Azure-AI` (1 pages)
-- `知识库` (1 pages)
+- `云厂商` (1 pages)
+- `多智能体` (1 pages)
 - `状态机` (1 pages)
+- `编程助手` (1 pages)
 - `图论` (1 pages)
-- `谷歌` (1 pages)
-- `架构` (1 pages)
 
 ---
 

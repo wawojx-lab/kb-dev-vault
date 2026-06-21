@@ -12,7 +12,7 @@ tags: [moc, auto-generated, 对比]
 # MOC - 对比
 
 > Auto-generated Map of Content for tag '对比'.
-> Pages: 4 | Generated: 2026-06-21 01:01
+> Pages: 4 | Generated: 2026-06-21 12:03
 
 ## Pages by Type
 
@@ -30,12 +30,12 @@ tags: [moc, auto-generated, 对比]
 - `选型` (4 pages)
 - `agent-orchestration` (3 pages)
 - `Azure-AI` (1 pages)
-- `谷歌` (1 pages)
-- `图论` (1 pages)
-- `状态机` (1 pages)
-- `Bedrock` (1 pages)
-- `云厂商` (1 pages)
 - `多智能体` (1 pages)
+- `微软` (1 pages)
+- `Bedrock` (1 pages)
+- `图论` (1 pages)
+- `谷歌` (1 pages)
+- `状态机` (1 pages)
 - `openai` (1 pages)
 
 ---

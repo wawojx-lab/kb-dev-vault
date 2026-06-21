@@ -12,7 +12,7 @@ tags: [moc, auto-generated, 工具]
 # MOC - 工具
 
 > Auto-generated Map of Content for tag '工具'.
-> Pages: 8 | Generated: 2026-06-21 01:01
+> Pages: 8 | Generated: 2026-06-21 12:03
 
 ## Pages by Type
 
@@ -35,12 +35,12 @@ tags: [moc, auto-generated, 工具]
 - `多智能体` (3 pages)
 - `agent-orchestration` (3 pages)
 - `微软` (2 pages)
+- `部署` (1 pages)
 - `命令行` (1 pages)
+- `容器` (1 pages)
 - `周期任务` (1 pages)
 - `状态机` (1 pages)
-- `数据库` (1 pages)
-- `版本控制` (1 pages)
-- `嵌入式` (1 pages)
+- `谷歌` (1 pages)
 
 ---
 

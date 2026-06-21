@@ -12,7 +12,7 @@ tags: [moc, auto-generated, 框架]
 # MOC - 框架
 
 > Auto-generated Map of Content for tag '框架'.
-> Pages: 5 | Generated: 2026-06-21 01:01
+> Pages: 5 | Generated: 2026-06-21 12:03
 
 ## Pages by Type
 
@@ -28,16 +28,16 @@ tags: [moc, auto-generated, 框架]
 
 ## Related Tags
 
-- `工具` (4 pages)
 - `多智能体` (4 pages)
+- `工具` (4 pages)
 - `agent-orchestration` (3 pages)
 - `微软` (2 pages)
-- `langchain` (1 pages)
-- `handoff` (1 pages)
-- `状态机` (1 pages)
-- `谷歌` (1 pages)
-- `gemini` (1 pages)
+- `OpenAI` (1 pages)
 - `agent` (1 pages)
+- `开源` (1 pages)
+- `gemini` (1 pages)
+- `langchain` (1 pages)
+- `谷歌` (1 pages)
 
 ---
 

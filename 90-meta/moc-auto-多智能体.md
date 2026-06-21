@@ -12,7 +12,7 @@ tags: [moc, auto-generated, 多智能体]
 # MOC - 多智能体
 
 > Auto-generated Map of Content for tag '多智能体'.
-> Pages: 10 | Generated: 2026-06-21 01:01
+> Pages: 10 | Generated: 2026-06-21 12:03
 
 ## Pages by Type
 
@@ -26,9 +26,9 @@ tags: [moc, auto-generated, 多智能体]
 
 | Page | Updated |
 |------|---------|
-| [Handoff模式](../wiki/concepts/Handoff模式.md) | 2026-06-20 |
 | [多Agent协作](../wiki/concepts/多Agent协作.md) | 2026-06-20 |
 | [总控Agent模式](../wiki/concepts/总控Agent模式.md) | 2026-06-20 |
+| [Handoff模式](../wiki/concepts/Handoff模式.md) | 2026-06-20 |
 
 ### entities (4)
 
@@ -50,14 +50,14 @@ tags: [moc, auto-generated, 多智能体]
 
 - `agent-orchestration` (5 pages)
 - `框架` (4 pages)
-- `工具` (3 pages)
 - `openai` (3 pages)
+- `工具` (3 pages)
 - `微软` (2 pages)
-- `方法论` (2 pages)
 - `handoff` (2 pages)
-- `谷歌` (1 pages)
-- `协调` (1 pages)
-- `协作模式` (1 pages)
+- `方法论` (2 pages)
+- `概念` (1 pages)
+- `对比` (1 pages)
+- `guardrail` (1 pages)
 
 ---
 

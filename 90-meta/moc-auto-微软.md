@@ -12,7 +12,7 @@ tags: [moc, auto-generated, 微软]
 # MOC - 微软
 
 > Auto-generated Map of Content for tag '微软'.
-> Pages: 3 | Generated: 2026-06-21 01:01
+> Pages: 3 | Generated: 2026-06-21 12:03
 
 ## Pages by Type
 
@@ -33,12 +33,12 @@ tags: [moc, auto-generated, 微软]
 
 - `框架` (2 pages)
 - `多智能体` (2 pages)
-- `工具` (2 pages)
 - `agent-orchestration` (2 pages)
-- `开源` (1 pages)
-- `对比` (1 pages)
-- `选型` (1 pages)
+- `工具` (2 pages)
 - `谷歌` (1 pages)
+- `开源` (1 pages)
+- `选型` (1 pages)
+- `对比` (1 pages)
 
 ---
 

@@ -12,7 +12,7 @@ tags: [moc, auto-generated, 项目摘要]
 # MOC - 项目摘要
 
 > Auto-generated Map of Content for tag '项目摘要'.
-> Pages: 5 | Generated: 2026-06-21 01:01
+> Pages: 5 | Generated: 2026-06-21 12:03
 
 ## Pages by Type
 
@@ -21,23 +21,23 @@ tags: [moc, auto-generated, 项目摘要]
 | Page | Updated |
 |------|---------|
 | [3D](../wiki/summaries/3D.md) | 2026-06-20 |
+| [建设聚合模型平台](../wiki/summaries/建设聚合模型平台.md) | 2026-06-20 |
 | [stock-sim](../wiki/summaries/stock-sim.md) | 2026-06-20 |
 | [SuanJia](../wiki/summaries/SuanJia.md) | 2026-06-20 |
 | [TradingAgents](../wiki/summaries/TradingAgents.md) | 2026-06-20 |
-| [建设聚合模型平台](../wiki/summaries/建设聚合模型平台.md) | 2026-06-20 |
 
 ## Related Tags
 
 - `交易系统` (2 pages)
-- `飞书` (1 pages)
-- `13h拆解` (1 pages)
-- `多模型` (1 pages)
-- `股票` (1 pages)
-- `AI平台` (1 pages)
-- `SketchUp` (1 pages)
 - `建模` (1 pages)
+- `多模型` (1 pages)
 - `多智能体` (1 pages)
-- `造价` (1 pages)
+- `13h拆解` (1 pages)
+- `智能体` (1 pages)
+- `飞书` (1 pages)
+- `AI平台` (1 pages)
+- `虚拟公司` (1 pages)
+- `股票` (1 pages)
 
 ---
 

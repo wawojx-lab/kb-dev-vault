@@ -12,7 +12,7 @@ tags: [moc, auto-generated, 本地实践]
 # MOC - 本地实践
 
 > Auto-generated Map of Content for tag '本地实践'.
-> Pages: 4 | Generated: 2026-06-21 01:01
+> Pages: 4 | Generated: 2026-06-21 12:03
 
 ## Pages by Type
 
@@ -27,16 +27,16 @@ tags: [moc, auto-generated, 本地实践]
 
 ## Related Tags
 
-- `接力机制` (1 pages)
-- `5阶段` (1 pages)
-- `OKF` (1 pages)
-- `WORKLOG` (1 pages)
-- `markdown` (1 pages)
+- `进度追踪` (1 pages)
+- `客户管理` (1 pages)
 - `项目交付` (1 pages)
-- `招投标` (1 pages)
-- `项目管道` (1 pages)
 - `多Agent` (1 pages)
-- `frontmatter` (1 pages)
+- `招投标` (1 pages)
+- `PROJECT_STATUS` (1 pages)
+- `5阶段` (1 pages)
+- `markdown` (1 pages)
+- `公司库` (1 pages)
+- `文档生产` (1 pages)
 
 ---
 

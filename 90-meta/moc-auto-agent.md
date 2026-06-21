@@ -12,7 +12,7 @@ tags: [moc, auto-generated, agent]
 # MOC - agent
 
 > Auto-generated Map of Content for tag 'agent'.
-> Pages: 3 | Generated: 2026-06-21 01:01
+> Pages: 3 | Generated: 2026-06-21 12:03
 
 ## Pages by Type
 
@@ -38,14 +38,14 @@ tags: [moc, auto-generated, agent]
 
 - `OpenAI` (2 pages)
 - `多智能体` (1 pages)
-- `框架` (1 pages)
-- `仓库治理` (1 pages)
 - `企业` (1 pages)
+- `框架` (1 pages)
 - `方法论` (1 pages)
-- `handoff` (1 pages)
-- `guardrail` (1 pages)
 - `应用案例` (1 pages)
 - `集成模式` (1 pages)
+- `guardrail` (1 pages)
+- `任务拆解` (1 pages)
+- `handoff` (1 pages)
 
 ---
 
