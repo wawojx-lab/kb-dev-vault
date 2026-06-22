@@ -5,7 +5,7 @@ source: 'opencode 1.17.9 官方文档（https://opencode.ai/docs/cli/）+ SuanJi
 created: 2026-06-21
 updated: 2026-06-21
 confidence: stated
-status: design
+status: developing
 tags: [架构, 中转平台, opencode, 飞书, 多Agent, agent-orchestration]
 ---
 
