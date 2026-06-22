@@ -22,9 +22,9 @@ $exitCode = 0
 $script:lockAcquired = $false
 
 function Invoke-Git {
-    param([string]$GitCmd, [string]$Description, [switch]$AllowFail)
-    Write-Host ("[git] {0}: {1}" -f $Description, $GitCmd) -ForegroundColor Cyan
-    $output = & git -C $Repo @($GitCmd -split ' ') 2>&1
+    param([string[]]$GitArgs, [string]$Description, [switch]$AllowFail)
+    Write-Host ("[git] {0}: {1}" -f $Description, ($GitArgs -join ' ')) -ForegroundColor Cyan
+    $output = & git -C $Repo @GitArgs 2>&1
     $output | ForEach-Object { Write-Host "  $_" -ForegroundColor Gray }
     if ($LASTEXITCODE -ne 0 -and -not $AllowFail) {
         Write-Host ("[git] FAILED: {0}" -f $Description) -ForegroundColor Red
@@ -61,7 +61,7 @@ try {
     Write-Host ""
     Write-Host "=== Step 2: git add ===" -ForegroundColor Yellow
     if (-not $DryRun) {
-        $addResult = Invoke-Git -GitCmd "add -A" -Description "stage all changes"
+        $addResult = Invoke-Git -GitArgs @("add","-A") -Description "stage all changes"
         if (-not $addResult.success) {
             Write-Host "git add failed" -ForegroundColor Red
             $exitCode = 1
@@ -84,7 +84,7 @@ try {
             exit 0
         }
 
-        $commitResult = Invoke-Git -GitCmd "commit -m `"$CommitMsg`"" -Description "create commit"
+        $commitResult = Invoke-Git -GitArgs @("commit","-m",$CommitMsg) -Description "create commit"
         if (-not $commitResult.success) {
             Write-Host "git commit failed (maybe pre-commit hook blocked it)" -ForegroundColor Red
             $exitCode = 1
@@ -106,7 +106,7 @@ try {
             $rebaseSuccess = $true
             break
         }
-        $pullResult = Invoke-Git -GitCmd "pull --rebase $Remote $Branch" -Description "rebase on remote" -AllowFail
+        $pullResult = Invoke-Git -GitArgs @("pull","--rebase",$Remote,$Branch) -Description "rebase on remote" -AllowFail
         if ($pullResult.success) {
             $rebaseSuccess = $true
             break
@@ -144,7 +144,7 @@ try {
             $pushSuccess = $true
             break
         }
-        $pushResult = Invoke-Git -GitCmd "push $Remote $Branch" -Description "push to remote" -AllowFail
+        $pushResult = Invoke-Git -GitArgs @("push",$Remote,$Branch) -Description "push to remote" -AllowFail
         if ($pushResult.success) {
             $pushSuccess = $true
             break
